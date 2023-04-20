@@ -39,6 +39,12 @@ export default {
       required: false,
       default: "false",
     },
+    // eslint-disable-next-line vue/prop-name-casing
+    details_url: {
+      type: String,
+      required: false,
+      default: "",
+    },
     locale: {
       type: String,
       required: false,
@@ -86,6 +92,15 @@ export default {
         return true;
       }
     },
+    detailsUrl() {
+      if (process.env.VUE_APP_DOCUMENT_DETAILS_URL) {
+        return process.env.VUE_APP_DOCUMENT_DETAILS_URL;
+      } else if (this.details_url) {
+        return this.details_url;
+      } else {
+        return null;
+      }
+    },
   },
   created() {
     // locale config
@@ -99,6 +114,7 @@ export default {
     // document and project config
     Promise.all([
       this.$store.dispatch("project/setProjectId", this.projectId),
+      this.$store.dispatch("display/setDetailsUrl", this.detailsUrl),
       this.$store.dispatch("document/setDocId", this.documentId),
       this.$store.dispatch("document/setPublicView", this.isPublicView),
     ]).finally(() => {

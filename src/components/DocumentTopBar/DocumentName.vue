@@ -35,6 +35,9 @@
     >
       {{ $t("save") }}
     </div>
+    <a v-if="detailsUrl" class="btn" :href="detailsUrl">
+      {{ $t("details") }}
+    </a>
     <div v-if="saving" class="message-container">
       <span class="loading-container">
         <b-notification :closable="false" class="loading-background">
@@ -92,7 +95,7 @@ export default {
       "publicView",
       "recalculatingAnnotations",
     ]),
-    ...mapState("display", ["optimalResolution"]),
+    ...mapState("display", ["optimalResolution", "detailsUrl"]),
     ...mapState("edit", ["editMode"]),
     textContent() {
       if (this.isEditable) {

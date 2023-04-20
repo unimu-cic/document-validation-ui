@@ -17,6 +17,7 @@
   "status_error": "We couldn’t change the status. Please try again later.",
   "edit": "Edit",
   "save": "Save",
+  "details": "Details",
   "autosaving": "Auto saving...",
   "saved": "Saved",
   "not_saved": "Could not save. Try again",

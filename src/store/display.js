@@ -29,6 +29,7 @@ const state = {
   interactionBlocked: false,
   documentActionBar: null, // document action bar properties
   categorizeModalIsActive: false,
+  detailsUrl: null,
 };
 
 const getters = {
@@ -209,6 +210,9 @@ const actions = {
   setCategorizeModalIsActive: ({ commit }, value) => {
     commit("SET_CATEGORIZE_MODAL_IS_ACTIVE", value);
   },
+  setDetailsUrl: ({ commit }, value) => {
+    commit("SET_DETAILS_URL", value);
+  }
 };
 
 const mutations = {
@@ -235,6 +239,10 @@ const mutations = {
   SET_CATEGORIZE_MODAL_IS_ACTIVE: (state, value) => {
     state.categorizeModalIsActive = value;
   },
+
+  SET_DETAILS_URL: (state, value) => {
+    state.detailsUrl = value;
+  }
 };
 
 export default {
